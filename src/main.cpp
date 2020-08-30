@@ -5,87 +5,19 @@
 
 #include "hadron8.h"
 
-int main(int, char**)
+int main(int argc, char** argv)
 {
-	hadron8 h8;
-	
-	/*
+	if (argc < 2)
 	{
-		{
-			h8.V[0] = 0;
-			h8.V[1] = 0;
-
-			h8.memory[0x200] = 0xD0;
-			h8.memory[0x200 + 0x1] = 0x15;
-
-			h8.memory[81] = 0x80;
-
-			h8.I = 0;
-
-			h8.cycle();
-			if (h8.get_draw() == 1)
-				h8.draw_gfx();
-		}
-
-		{
-			h8.pc = 0x200;
-			h8.V[0] = 6;
-			h8.V[1] = 0;
-
-			h8.memory[0x200] = 0xD0;
-			h8.memory[0x200 + 0x1] = 0x15;
-
-			h8.memory[81] = 0x80;
-
-			h8.I = 5;
-
-			h8.cycle();
-			if (h8.get_draw() == 1)
-				h8.draw_gfx();
-		}
-
-		{
-			h8.pc = 0x200;
-			h8.V[0] = 12;
-			h8.V[1] = 0;
-
-			h8.memory[0x200] = 0xD0;
-			h8.memory[0x200 + 0x1] = 0x15;
-
-			h8.memory[81] = 0x80;
-
-			h8.I = 10;
-
-			h8.cycle();
-			if (h8.get_draw() == 1)
-				h8.draw_gfx();
-		}
-
-		{
-			h8.pc = 0x200;
-			h8.V[0] = 18;
-			h8.V[1] = 0;
-
-			h8.memory[0x200] = 0xD0;
-			h8.memory[0x200 + 0x1] = 0x15;
-
-			h8.memory[81] = 0x80;
-
-			h8.I = 15;
-
-			h8.cycle();
-			if (h8.get_draw() == 1)
-				h8.draw_gfx();
-		}
-
-
-		SDL_Delay(20000);
+		printf("Usage: hadron-chip8.exe [game_filename]\n\n");
+		return 1;
 	}
-	*/
+
+	hadron8 h8;
 
 	bool running = true;
 
-	if (!h8.load_game("C:\\personal\\8bitgames\\TANK"))
+	if (!h8.load_game(argv[1]))
 		return 1;
 	 
 	while (h8.get_exit() == 0)
