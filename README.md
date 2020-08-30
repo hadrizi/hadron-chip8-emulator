@@ -1,2 +1,2 @@
-# hadron-chip8-emulator
-My implementation of CHIP8
+# Hadron CHIP8 emulator
+It requires SDL2 for graphics.
